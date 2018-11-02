@@ -1,4 +1,6 @@
 from pprint import pprint
+from datetime import datetime,timedelta
+
 
 SCHEDULE = []
 SANDWICH_TASKS = [("make", 60), ("serve", 30)]
@@ -7,6 +9,7 @@ SANDWICH_TASKS = [("make", 60), ("serve", 30)]
 def display_schedule():
     for info in SCHEDULE:
         print("{}:{:02}".format(*divmod(info["start"], 60)), info["task"], "sandwich", info["order"])
+        # print(info["order_at"]+timedelta(seconds=info["start"]), info["task"], "sandwich", info["order"])
 
 
 def order(no_of_sw):
@@ -21,8 +24,10 @@ def order(no_of_sw):
                          "finish": finish,
                          "task": task}
             SCHEDULE.append(task_info)
+        if start:
+            print("Your order will be served in: {} min {} secs".format(*divmod(start, 60)))
 
-    display_schedule()
 
 
 order(4)
+display_schedule()
