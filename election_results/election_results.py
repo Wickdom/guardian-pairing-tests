@@ -6,6 +6,7 @@ import json
 FEED_DIR = os.path.abspath(".")
 FEED_FILE = os.path.join(FEED_DIR, 'feed.txt')
 FEED_ERR = os.path.join(FEED_DIR, 'feed_err.txt')
+OVERRIDE_FILE= os.path.join(FEED_DIR, 'override.txt')
 
 PARTY_CODE = {
     "C": "Conservative Party",
@@ -17,7 +18,7 @@ PARTY_CODE = {
     "SNP": "SNP"
 }
 
-RESULTS = defaultdict(dict)
+RESULTS = defaultdict(lambda: {})
 
 ERRORS = []
 
@@ -79,7 +80,7 @@ def parse_feed(file):
             if not constituency: continue
             vote_info = extract_vote_info(line, i)
             if not vote_info: continue
-            RESULTS[constituency] = vote_info
+            RESULTS[constituency].update(vote_info)
 
 
 def display_result():
@@ -93,6 +94,10 @@ def display_result():
 try:
     parse_feed(FEED_FILE)
     display_result()
+    print("Updating with override")
+    parse_feed(OVERRIDE_FILE)
+    display_result()
     save_error_log()
 except Exception as e:
     save_error_log()
+    raise e
