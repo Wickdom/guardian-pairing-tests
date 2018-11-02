@@ -4,7 +4,7 @@ from datetime import datetime,timedelta
 
 SCHEDULE = []
 SANDWICH_TASKS = [("make", 60), ("serve", 30)]
-
+MAX_WAIT_TIME = 5*60
 
 def display_schedule():
     for info in SCHEDULE:
@@ -19,6 +19,9 @@ def order(no_of_sw):
             if SCHEDULE:
                 start = SCHEDULE[-1]["finish"]
             finish = start + time
+            if finish > MAX_WAIT_TIME:
+                print("Sorry! too busy we can't take orders now")
+                return
             task_info = {"order": sw,
                          "start": start,
                          "finish": finish,
