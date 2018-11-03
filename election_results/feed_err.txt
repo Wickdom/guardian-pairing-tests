@@ -1,28 +1,28 @@
 Line No: 3
 Entry: 22547, L, 9389, C, 4829, LD, 3375, UKIP, 3371, G, 309, Ind
-Issue: Constituency name  missing or invalid value - 22547
+Issue: Invalid Constituency value 22547
 --------------------------------------------------------------------------------
 Line No: 4
 Entry: Finsbury, 22547, X, 9389, C, 4829, LD, 3375, UKIP, 3371, G, 309, Ind
-Issue: Invalid Party Code  X
+Issue: Incorrect Party Code X
 --------------------------------------------------------------------------------
 Line No: 5
 Entry: Islington, L, 9389, C, 4829, LD, 3375, UKIP, 3371, G, 309, Ind
-Issue: Either Party Code or Vote info missing
+Issue: Vote or Party Code missing; Expect to be found in pairs
 --------------------------------------------------------------------------------
 Line No: 6
 Entry: Cardiff, 11014, 17803, L, 4923, UKIP, 2069, LD
-Issue: Either Party Code or Vote info missing
+Issue: Vote or Party Code missing; Expect to be found in pairs
 --------------------------------------------------------------------------------
 Line No: 7
 Entry: West, 1.1, C, 17803, L, 4923, UKIP, 2069, LD
-Issue: Invalid Vote Count 1.1
+Issue: Position of Vote/Party Code inter changed or incorrect value for Vote found
 --------------------------------------------------------------------------------
 Line No: 8
-Entry: CarWest, -1, C, 17803, L, 4923, UKIP, 2069, LD
-Issue: Invalid Vote Count -1
+Entry: NegativeVote, -1, C, 17803, L, 4923, UKIP, 2069, LD
+Issue: Invalid Vote Count -1 for Party Conservative Party
 --------------------------------------------------------------------------------
 Line No: 9
 Entry: Junkline
-Issue: Expected delimeter ',' not found in the line
+Issue: ('Junkline', "Expected delimeter ',' not found in the line")
 --------------------------------------------------------------------------------
